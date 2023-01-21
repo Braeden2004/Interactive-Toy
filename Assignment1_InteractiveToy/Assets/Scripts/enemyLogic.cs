@@ -6,7 +6,8 @@ public class enemyLogic : MonoBehaviour
 {
     //Define Variables
     public GameObject attacker;
-    public int power = 10000;
+    playerMove playerScript;
+    //public int power = 10000; 
 
     //Getting Stunned
     public float stunTime = 0.5f;
@@ -21,6 +22,8 @@ public class enemyLogic : MonoBehaviour
     public Sprite chickStand;
     public Sprite chickHurt;
 
+
+
     void Start()
     {
         //Get the components
@@ -29,6 +32,8 @@ public class enemyLogic : MonoBehaviour
 
         //Set up initial sprite
         sr.sprite = chickStand;
+
+        playerScript = GameObject.Find("player").GetComponent<playerMove>();
     }
     //* Update is called once per frame
     void Update()
@@ -45,7 +50,7 @@ public class enemyLogic : MonoBehaviour
             if (distance < 5f)
             {
                 //Add Force
-                rb.AddForce(new Vector2(power, power / 2));
+                rb.AddForce(new Vector2(playerScript.power, playerScript.power / 2));
 
                 stun = true;
                 Debug.Log("HIT");
