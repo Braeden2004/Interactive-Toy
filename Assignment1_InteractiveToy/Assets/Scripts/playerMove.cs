@@ -19,6 +19,11 @@ public class playerMove : MonoBehaviour
     //Setup Sprites
     public Sprite peterStand;
     public Sprite peterKick;
+    public Sprite peterPajamaStand;
+    public Sprite peterPajamaSwing;
+
+    //Powerup
+    public bool powerUp = false;
 
 
     void Start()
@@ -55,12 +60,16 @@ public class playerMove : MonoBehaviour
         //Changing sprite with a timer
         if ((punch == true) && (punchTime > 0))
         {
-            sr.sprite = peterKick;
+            //Change Sprite depending on if he has a power up
+            if (powerUp == false) sr.sprite = peterKick;
+            if (powerUp == true) sr.sprite = peterPajamaSwing;
+            
             punchTime -= Time.deltaTime;
         }
         else
         {
-            sr.sprite = peterStand;
+            if (powerUp == false) sr.sprite = peterStand;
+            if (powerUp == true) sr.sprite = peterPajamaStand;
 
             punch = false;
             punchTime = punchTimeMax;
