@@ -39,6 +39,12 @@ public class playerMove : MonoBehaviour
 
     void Update()
     {
+        //Restart game
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            restart();
+        }
+
         //Move Right
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -95,6 +101,11 @@ public class playerMove : MonoBehaviour
 
             Destroy(collision.gameObject);
         }
+    }
+
+    void restart()
+    {
+        Application.LoadLevel(0);
     }
 
 }

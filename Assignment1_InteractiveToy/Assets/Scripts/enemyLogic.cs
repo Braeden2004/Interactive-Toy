@@ -84,23 +84,13 @@ public class enemyLogic : MonoBehaviour
         
     }
 
-    /*
-    //Destroying object when hits lava
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Lava"))
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
-
     //Restart game when chicken hits the barriers
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Lava")
+        if (collision.gameObject.CompareTag("Lava"))
         { 
-            Application.LoadLevel(0);
+            //Application.LoadLevel(0);
+            Destroy(gameObject);
         }
 
     }
