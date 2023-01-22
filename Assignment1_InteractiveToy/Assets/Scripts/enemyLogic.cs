@@ -22,13 +22,18 @@ public class enemyLogic : MonoBehaviour
     public Sprite chickStand;
     public Sprite chickHurt;
 
+    //Audio Setup
+    public AudioClip sfx_damage_hit5;
+    public AudioClip sfx_coin_cluster9;
 
+    private AudioSource audioSource;
 
     void Start()
     {
         //Get the components
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 
         //Set up initial sprite
         sr.sprite = chickStand;
@@ -54,6 +59,10 @@ public class enemyLogic : MonoBehaviour
 
                 stun = true;
                 Debug.Log("HIT");
+
+                //Sound Effects
+                if (playerScript.powerUp == false) PlayAttackSound();
+                if (playerScript.powerUp == true) PlayPowerUpSound();
             }
         }
 
@@ -75,7 +84,7 @@ public class enemyLogic : MonoBehaviour
         
     }
 
-
+    /*
     //Destroying object when hits lava
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -84,5 +93,28 @@ public class enemyLogic : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 
+    //Restart game when chicken hits the barriers
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Lava")
+        { 
+            Application.LoadLevel(0);
+        }
+
+    }
+
+    private void PlayAttackSound()
+    {
+        audioSource.clip = sfx_damage_hit5;
+        audioSource.Play();
+    }
+
+    private void PlayPowerUpSound()
+    {
+
+        audioSource.clip = sfx_coin_cluster9;
+        audioSource.Play();
+    }
 }

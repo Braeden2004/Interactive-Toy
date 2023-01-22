@@ -27,7 +27,6 @@ public class playerMove : MonoBehaviour
     //Powerup
     public bool powerUp = false;
 
-
     void Start()
     {
         //Get the components
@@ -55,7 +54,7 @@ public class playerMove : MonoBehaviour
         //Track Spacebar Press
         if (Input.GetKeyDown(KeyCode.Space))
         {      
-            punch = true;        
+            punch = true;
         }
 
 
@@ -97,4 +96,5 @@ public class playerMove : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
 }
