@@ -1,0 +1,22 @@
+---Chicken Fight----
+by: Braeden Hammill
+
+
+----About----
+
+The purpose of this game is to live the fantasy of beating up the infamous chicken from Family Guy
+as the one and only Peter Griffin. There are no points or objectives, just have fun beating up the chicken.
+
+Pickup the magical pajamas to gain a power up that increases Peters power.
+
+----Controls-----
+
+Move left and right with the arrow keys, and attack with spacebar.
+
+press [R] to restart.
+
+----Sources----
+
+- I used ChatGPT to help with debugging code 
+
+- Official Unity doccuments and fourms were used to reference various functions and concepts.

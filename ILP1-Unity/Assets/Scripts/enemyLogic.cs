@@ -89,7 +89,6 @@ public class enemyLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Lava"))
         { 
-            //Application.LoadLevel(0);
             Destroy(gameObject);
         }
 
